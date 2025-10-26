@@ -1,0 +1,57 @@
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 18px; background:#f7f8fb; color:#111 }
+main { max-width:760px; margin:0 auto; background:white; padding:22px; border-radius:10px; box-shadow:0 8px 28px rgba(0,0,0,0.06) }
+h1 { margin-top: 0 }
+.explain { background:#fcfdff; border:1px solid #eef2ff; padding:10px 12px; border-radius:8px; margin-bottom:12px }
+.explain ul { margin:6px 0 0 18px; padding:0 }
+.explain .hint { margin:10px 0 0; color:#444; font-size:0.95rem }
+
+.inputs { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px }
+label { display:flex; align-items:center; gap:8px; min-width:220px }
+input[type=number] { width:120px; padding:6px; border-radius:6px; border:1px solid #ddd; background:#fff }
+
+.controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px }
+.buttons { margin-top:6px }
+button { padding:8px 12px; margin-right:8px; border-radius:8px; border:1px solid #bbb; background:#fff; cursor:pointer }
+button:hover { transform:translateY(-1px) }
+.preset { background:#f1f6ff; border-color:#c6ddff }
+
+.presets { display:flex; gap:8px; align-items:center; margin-top:6px }
+.presets span { font-size:0.95rem; margin-right:6px; color:#333 }
+
+#result { margin-top:18px; }
+#pred-image { max-width:240px; margin-top:10px; border-radius:6px; border:1px solid #ddd; display:block }
+
+#prediction-probs { margin-top:6px; font-size:0.95rem; color:#333 }
+
+/* mobile tweaks */
+@media (max-width:520px) {
+  .inputs { flex-direction:column }
+  label { min-width:auto }
+  .controls { flex-direction:column; align-items:flex-start }
+}
+
+.explain-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+.explain-flex .text {
+  flex: 2 1 260px;
+}
+.explain-flex .diagram {
+  flex: 1 1 220px;
+  text-align: center;
+}
+.explain-flex img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+}
+.explain-flex figcaption {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
+}

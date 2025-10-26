@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Iris classifier demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Iris Classifier</h1>
+    <p>Enter the four features below and click <strong>Predict</strong>. The model runs entirely in your browser.</p>
+
+    <section class="explain">
+      <h2>Features Explanation</h2>
+      <div class="explain-flex">
+        <div class="text">
+          <ul>
+            <li><strong>Sepal length</strong> — length of the outer sepal (cm)</li>
+            <li><strong>Sepal width</strong> — width of the outer sepal (cm)</li>
+            <li><strong>Petal length</strong> — length of the inner petal (cm)</li>
+            <li><strong>Petal width</strong> — width of the inner petal (cm)</li>
+          </ul>
+          <p class="hint">
+            Tip: <em>Setosa</em> usually has short petals; <em>virginica</em> tends to have long petals and larger sepal measurements.
+          </p>
+        </div>
+        <div class="diagram">
+          <img src="images/petal-sepal.jpg" alt="Diagram showing petals and sepals of an iris flower">
+          <figcaption>Diagram showing petals and sepals of a flower</figcaption>
+        </div>
+      </div>
+    </section>
+
+    <form id="iris-form" onsubmit="return false;">
+      <div class="inputs">
+        <label>Sepal length (cm): <input id="sepal_length" type="number" step="0.1" value="5.1" required></label>
+        <label>Sepal width  (cm): <input id="sepal_width"  type="number" step="0.1" value="3.5" required></label>
+        <label>Petal length (cm): <input id="petal_length" type="number" step="0.1" value="1.4" required></label>
+        <label>Petal width  (cm): <input id="petal_width"  type="number" step="0.1" value="0.2" required></label>
+      </div>
+
+      <div class="controls">
+        <div class="buttons">
+          <button id="predict">Predict</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+
+        <div class="presets">
+          <span>Example presets:</span>
+          <button class="preset" data-name="setosa" type="button">Typical setosa</button>
+          <button class="preset" data-name="versicolor" type="button">Typical versicolor</button>
+          <button class="preset" data-name="virginica" type="button">Typical virginica</button>
+        </div>
+      </div>
+    </form>
+
+    <section id="result" hidden>
+      <h2>Prediction</h2>
+      <div id="prediction-text"></div>
+      <div id="prediction-probs"></div>
+      <img id="pred-image" alt="predicted iris" src="" />
+    </section>
+
+    <footer>
+      <small>Model: logistic regression trained on scikit-learn iris dataset.</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
