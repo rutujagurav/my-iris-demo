@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Iris classifier demo</title>
+  <title>Iris classifier — multi-model demo</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main>
-    <h1>Iris Classifier</h1>
-    <p>Enter the four features below and click <strong>Predict</strong>. The model runs entirely in your browser.</p>
+    <h1>Iris classifier (multi-model)</h1>
+    <p>Try multiple models and compare their predictions. Predictions happen entirely in your browser.</p>
 
     <section class="explain">
-      <h2>Features Explanation</h2>
+      <h2>Feature explanations</h2>
       <div class="explain-flex">
         <div class="text">
           <ul>
@@ -21,13 +21,10 @@
             <li><strong>Petal length</strong> — length of the inner petal (cm)</li>
             <li><strong>Petal width</strong> — width of the inner petal (cm)</li>
           </ul>
-          <p class="hint">
-            Tip: <em>Setosa</em> usually has short petals; <em>virginica</em> tends to have long petals and larger sepal measurements.
-          </p>
         </div>
         <div class="diagram">
           <img src="images/petal-sepal.jpg" alt="Diagram showing petals and sepals of an iris flower">
-          <figcaption>Diagram showing petals and sepals of a flower</figcaption>
+          <figcaption>petal vs sepal</figcaption>
         </div>
       </div>
     </section>
@@ -52,18 +49,32 @@
           <button class="preset" data-name="versicolor" type="button">Typical versicolor</button>
           <button class="preset" data-name="virginica" type="button">Typical virginica</button>
         </div>
+
+        <div class="model-controls">
+          <label><input type="checkbox" id="show_logistic" checked> Logistic</label>
+          <label><input type="checkbox" id="show_rf" checked> RandomForest</label>
+          <label><input type="checkbox" id="show_svm" checked> SVM</label>
+          <label><input type="checkbox" id="show_mlp" checked> MLP</label>
+          <label style="margin-left:12px;"><input type="checkbox" id="ensemble" > Show ensemble (avg probs)</label>
+        </div>
       </div>
     </form>
 
+    <section id="results-multi" hidden>
+      <h2>Model predictions</h2>
+      <div id="models-output"></div>
+
+      <h3 id="ensemble-title" style="display:none">Ensemble prediction</h3>
+      <div id="ensemble-output" style="display:none"></div>
+    </section>
+
     <section id="result" hidden>
-      <h2>Prediction</h2>
-      <div id="prediction-text"></div>
-      <div id="prediction-probs"></div>
+      <h2>Reference image</h2>
       <img id="pred-image" alt="predicted iris" src="" />
     </section>
 
     <footer>
-      <small>Model: logistic regression trained on scikit-learn iris dataset.</small>
+      <small>Model: models trained on scikit-learn iris dataset (exported to JSON).</small>
     </footer>
   </main>
 
